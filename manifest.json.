@@ -1,0 +1,10 @@
+{
+“name”: “StudySphere”,
+“short_name”: “StudySphere”,
+“description”: “Your personal learning space.”,
+“start_url”: “./”,
+“scope”: “./”,
+“display”: “standalone”,
+“background_color”: “#f7f7fc”,
+“theme_color”: “#7957e8”
+}
