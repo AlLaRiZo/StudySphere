@@ -4874,3 +4874,16 @@ if (themeToggle) {
   });
 })();
 
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("welcomeButton");
+  const message = document.getElementById("message");
+
+  if (button && message) {
+    button.addEventListener("click", function () {
+      message.textContent =
+        "Welcome to StudySphere! Your learning journey starts here.";
+
+      button.textContent = "Ready to Learn!";
+    });
+  }
+});
