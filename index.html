@@ -5,70 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#176b4d">
   <meta name="description" content="StudySphere — your personal student productivity dashboard.">
-
   <title>StudySphere | Student Productivity</title>
-
   <link rel="stylesheet" href="./style.css">
   <link rel="manifest" href="./manifest.json">
 </head>
-
 <body>
-
 <div class="app">
-
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
-
-    <h2 class="logo">🌐 StudySphere<span>.</span></h2>
-
-    <p class="menu-label">YOUR WORKSPACE</p>
-
+    <h2 class="logo">StudySphere<span>.</span></h2>
+    <p class="menu-label">WORKSPACE</p>
     <nav aria-label="Main navigation">
-
       <button type="button" class="nav-btn active" data-page="dashboard">
-        🏠 Dashboard
+        Dashboard
       </button>
-
       <button type="button" class="nav-btn" data-page="assignments">
-        📝 Assignments
+        Assignments
       </button>
-
       <button type="button" class="nav-btn" data-page="planner">
-        📅 Study Planner
+        Study Planner
       </button>
-
       <button type="button" class="nav-btn" data-page="flashcards">
-        🗂️ Flashcards
+        Flashcards
       </button>
-
       <button type="button" class="nav-btn" data-page="quiz">
-        🧠 Quick Quiz
+        Quick Quiz
       </button>
-
       <button type="button" class="nav-btn" data-page="timer">
-        ⏱️ Study Timer
+        Study Timer
       </button>
-
       <button type="button" class="nav-btn" data-page="progress">
-        📈 My Progress
+        My Progress
       </button>
-
       <button type="button" class="nav-btn" data-page="studyGoals">
-        🎯 Study Goals
+        Study Goals
       </button>
-
       <button type="button" class="nav-btn" data-page="notes">
-        📒 Digital Notes
+        Digital Notes
       </button>
-
     </nav>
-
-    <!-- LIGHT AND DARK MODE -->
+    <!-- THEME SWITCHER -->
     <div class="theme-switcher">
-
-      <span id="themeIcon" aria-hidden="true">☀️</span>
+      <span id="themeIcon" aria-hidden="true">☀</span>
       <span id="themeLabel">Light Mode</span>
-
       <button
         type="button"
         id="themeToggle"
@@ -78,43 +57,32 @@
       >
         <span class="theme-toggle-knob"></span>
       </button>
-
     </div>
-
     <div class="sidebar-footer">
-      <p>✨ Small steps.</p>
-      <p>🚀 Big achievements.</p>
+      <p>Small steps.</p>
+      <p>Big achievements.</p>
     </div>
-
   </aside>
-
   <!-- MAIN CONTENT -->
   <main class="main-content">
-
     <!-- TOP BAR -->
     <header class="topbar">
-
       <div>
         <p class="date-label">YOUR PERSONAL LEARNING SPACE</p>
-        <h2>👋 Study Dashboard</h2>
+        <h2>Study Dashboard</h2>
         <p>Welcome back! Ready to make today productive?</p>
       </div>
-
       <div class="topbar-actions">
-        <span class="user-avatar" role="img" aria-label="Student profile">🎓</span>
+        <span class="user-avatar" role="img" aria-label="Student profile">
+          S
+        </span>
       </div>
-
     </header>
-
     <!-- GLOBAL SEARCH -->
     <div class="global-search">
-
-      <label for="globalSearchInput">🔎 Search StudySphere</label>
-
+      <label for="globalSearchInput">Search StudySphere</label>
       <div class="global-search-box">
-
-        <span aria-hidden="true">🔍</span>
-
+        <span aria-hidden="true">⌕</span>
         <input
           type="search"
           id="globalSearchInput"
@@ -122,506 +90,354 @@
           autocomplete="off"
           aria-label="Search assignments, notes, and flashcards"
         >
-
-        <button type="button" id="clearSearchBtn" aria-label="Clear search">
-          ✖ Clear
+        <button
+          type="button"
+          id="clearSearchBtn"
+          aria-label="Clear search"
+        >
+          Clear
         </button>
-
       </div>
-
       <div
         id="globalSearchResults"
         class="global-search-results"
         aria-live="polite"
       ></div>
-
     </div>
-
-    <!-- ===================================== -->
-    <!-- DASHBOARD PAGE -->
-    <!-- ===================================== -->
-
+    <!-- DASHBOARD -->
     <section id="dashboard" class="page active-page">
-
       <!-- WELCOME CARD -->
       <div class="welcome-card">
-
         <div>
-
-          <p class="welcome-label">✨ WELCOME TO STUDYSPHERE</p>
-
+          <p class="welcome-label">WELCOME TO STUDYSPHERE</p>
           <h1>Learn smarter,<br>not harder.</h1>
-
           <p>
             Organize your tasks, plan your study sessions,
-            review important lessons, and celebrate your progress.
+            review important lessons, and track your progress
+            in one place.
           </p>
-
           <button type="button" class="primary-btn" data-go="assignments">
-            📝 Manage My Tasks →
+            Manage My Tasks →
           </button>
-
           <button type="button" class="secondary-btn" data-go="planner">
-            📅 Plan My Study Time
+            Plan My Study Time
           </button>
-
         </div>
-
-        <div class="welcome-illustration" role="img" aria-label="Books and study materials">
-          📚✨
+        <div
+          class="welcome-illustration"
+          role="img"
+          aria-label="Books illustration"
+        >
+          Books
         </div>
-
       </div>
-
       <!-- OVERVIEW -->
       <div class="section-title">
-        <h2>📊 Your Overview</h2>
+        <h2>Your Overview</h2>
         <p>Keep track of your academic journey.</p>
       </div>
-
-      <!-- ASSIGNMENT STATISTICS -->
       <div class="stats-grid">
-
         <div class="stat-card">
-          <div class="stat-icon purple" aria-hidden="true">📋</div>
+          <div class="stat-icon purple" aria-hidden="true">A</div>
           <p>Total Assignments</p>
           <h2 id="totalTasks">0</h2>
         </div>
-
         <div class="stat-card">
-          <div class="stat-icon green" aria-hidden="true">✅</div>
+          <div class="stat-icon green" aria-hidden="true">C</div>
           <p>Completed Tasks</p>
           <h2 id="completedTasks">0</h2>
         </div>
-
         <div class="stat-card">
-          <div class="stat-icon orange" aria-hidden="true">⏳</div>
+          <div class="stat-icon orange" aria-hidden="true">P</div>
           <p>Pending Tasks</p>
           <h2 id="pendingTasks">0</h2>
         </div>
-
       </div>
-
       <!-- QUICK ACCESS -->
       <div class="section-title">
-        <h2>⚡ Quick Access</h2>
+        <h2>Quick Access</h2>
         <p>Choose what you want to work on.</p>
       </div>
-
       <div class="quick-grid">
-
         <button type="button" class="quick-card" data-go="assignments">
-          <span aria-hidden="true">📝</span>
+          <span class="quick-icon" aria-hidden="true">01</span>
           <strong>Assignments</strong>
           <small>Manage your schoolwork</small>
-          <span aria-hidden="true">→</span>
+          <span class="quick-arrow" aria-hidden="true">→</span>
         </button>
-
         <button type="button" class="quick-card" data-go="flashcards">
-          <span aria-hidden="true">🗂️</span>
+          <span class="quick-icon" aria-hidden="true">02</span>
           <strong>Flashcards</strong>
           <small>Review important concepts</small>
-          <span aria-hidden="true">→</span>
+          <span class="quick-arrow" aria-hidden="true">→</span>
         </button>
-
         <button type="button" class="quick-card" data-go="quiz">
-          <span aria-hidden="true">🧠</span>
+          <span class="quick-icon" aria-hidden="true">03</span>
           <strong>Quick Quiz</strong>
           <small>Test your knowledge</small>
-          <span aria-hidden="true">→</span>
+          <span class="quick-arrow" aria-hidden="true">→</span>
         </button>
-
         <button type="button" class="quick-card" data-go="timer">
-          <span aria-hidden="true">⏱️</span>
+          <span class="quick-icon" aria-hidden="true">04</span>
           <strong>Study Timer</strong>
           <small>Focus on one task</small>
-          <span aria-hidden="true">→</span>
+          <span class="quick-arrow" aria-hidden="true">→</span>
         </button>
-
       </div>
-
       <!-- STUDY GOALS PREVIEW -->
       <div class="section-title">
-        <h2>🎯 Study Goals</h2>
-        <p>Make progress one study session at a time.</p>
+        <h2>Study Goals</h2>
+        <p>Build consistent study habits, one session at a time.</p>
       </div>
-
       <div class="stats-grid">
-
         <div class="stat-card">
-          <div class="stat-icon purple" aria-hidden="true">⏰</div>
+          <div class="stat-icon purple" aria-hidden="true">T</div>
           <p>Today's Study Time</p>
           <h2 id="dashboardStudyMinutes">0 min</h2>
         </div>
-
         <div class="stat-card">
-          <div class="stat-icon green" aria-hidden="true">🎯</div>
+          <div class="stat-icon green" aria-hidden="true">G</div>
           <p>Daily Goal</p>
           <h2 id="dashboardStudyGoal">60 min</h2>
         </div>
-
         <div class="stat-card">
-          <div class="stat-icon orange" aria-hidden="true">🔥</div>
+          <div class="stat-icon orange" aria-hidden="true">S</div>
           <p>Study Streak</p>
           <h2 id="dashboardStudyStreak">0 days</h2>
         </div>
-
       </div>
-
       <button type="button" class="primary-btn" data-go="studyGoals">
-        🎯 View Study Goals →
+        View Study Goals →
       </button>
-
       <button type="button" class="secondary-btn" data-go="notes">
-        📒 Open My Notes
+        Open My Notes
       </button>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- ASSIGNMENTS PAGE -->
-    <!-- ===================================== -->
-
+    <!-- ASSIGNMENTS -->
     <section id="assignments" class="page">
-
-      <!-- SMART DEADLINE REMINDER -->
       <div class="content-card deadline-reminder-card">
-
         <div class="deadline-heading">
-
           <div>
-            <p class="date-label">🔔 STAY ON TRACK</p>
+            <p class="date-label">STAY ON TRACK</p>
             <h2>Smart Deadline Reminder</h2>
             <p>Keep an eye on your upcoming deadlines.</p>
           </div>
-
         </div>
-
         <div class="deadline-summary">
-
           <div class="deadline-stat">
             <span id="overdueCount">0</span>
-            <p>🚨 Overdue</p>
+            <p>Overdue</p>
           </div>
-
           <div class="deadline-stat">
             <span id="todayCount">0</span>
-            <p>📌 Due Today</p>
+            <p>Due Today</p>
           </div>
-
           <div class="deadline-stat">
             <span id="upcomingCount">0</span>
-            <p>📅 Upcoming</p>
+            <p>Upcoming</p>
           </div>
-
         </div>
-
         <div id="deadlineReminderList" class="deadline-reminder-list">
           <p class="empty-deadlines">
-            🎉 Your assignment deadlines will appear here.
+            Your assignment deadlines will appear here.
           </p>
         </div>
-
       </div>
-
       <div class="page-heading">
-        <p class="date-label">🗂️ STAY ORGANIZED</p>
+        <p class="date-label">STAY ORGANIZED</p>
         <h1>My Assignments</h1>
-        <p>Add tasks, monitor your deadlines, and finish your schoolwork on time.</p>
+        <p>Add tasks, monitor deadlines, and complete your schoolwork on time.</p>
       </div>
-
-      <!-- ADD ASSIGNMENT -->
       <div class="content-card">
-
-        <h3>➕ Add a New Assignment</h3>
-
+        <h3>Add a New Assignment</h3>
         <form id="taskForm">
-
-          <label for="taskName">📌 Assignment Name</label>
-
+          <label for="taskName">Assignment Name</label>
           <input
             id="taskName"
             type="text"
             placeholder="e.g. Research Chapter 3"
             required
           >
-
-          <label for="taskSubject">📚 Subject</label>
-
+          <label for="taskSubject">Subject</label>
           <input
             id="taskSubject"
             type="text"
             placeholder="e.g. Practical Research"
             required
           >
-
-          <label for="taskDeadline">📅 Deadline</label>
-
+          <label for="taskDeadline">Deadline</label>
           <input
             id="taskDeadline"
             type="date"
             required
           >
-
           <button class="primary-btn" type="submit">
-            ➕ Add Assignment
+            Add Assignment
           </button>
-
           <button class="secondary-btn" type="reset">
-            ↺ Clear Form
+            Clear Form
           </button>
-
         </form>
-
       </div>
-
-      <!-- TASK LIST -->
       <div class="content-card">
-
-        <h3>📋 My Task List</h3>
-
+        <h3>My Task List</h3>
         <div id="taskList">
           <p class="empty-message">
-            📭 No assignments yet. Add your first task!
+            No assignments yet. Add your first task.
           </p>
         </div>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- STUDY PLANNER PAGE -->
-    <!-- ===================================== -->
-
+    <!-- STUDY PLANNER -->
     <section id="planner" class="page">
-
       <div class="page-heading">
-        <p class="date-label">📅 PLAN YOUR TIME</p>
+        <p class="date-label">PLAN YOUR TIME</p>
         <h1>Study Planner</h1>
         <p>Create a schedule that helps you balance schoolwork and study time.</p>
       </div>
-
       <div class="content-card">
-
-        <h3>🗓️ Schedule a Study Session</h3>
-
+        <h3>Schedule a Study Session</h3>
         <form id="plannerForm">
-
-          <label for="plannerSubject">📚 Subject</label>
-
+          <label for="plannerSubject">Subject</label>
           <input
             id="plannerSubject"
             type="text"
             placeholder="e.g. General Physics"
             required
           >
-
-          <label for="plannerDate">📅 Date</label>
-
+          <label for="plannerDate">Date</label>
           <input
             id="plannerDate"
             type="date"
             required
           >
-
-          <label for="plannerTime">🕒 Start Time</label>
-
+          <label for="plannerTime">Start Time</label>
           <input
             id="plannerTime"
             type="time"
             required
           >
-
-          <label for="plannerDuration">⏱️ Duration</label>
-
+          <label for="plannerDuration">Duration</label>
           <select id="plannerDuration">
             <option value="25">25 minutes</option>
             <option value="45">45 minutes</option>
             <option value="60">1 hour</option>
             <option value="90">1 hour 30 minutes</option>
           </select>
-
           <button class="primary-btn" type="submit">
-            ➕ Add Study Session
+            Add Study Session
           </button>
-
           <button class="secondary-btn" type="reset">
-            ↺ Clear Form
+            Clear Form
           </button>
-
         </form>
-
       </div>
-
       <div class="content-card">
-
-        <h3>📆 My Study Schedule</h3>
-
+        <h3>My Study Schedule</h3>
         <div id="scheduleList">
           <p class="empty-message">
-            📭 Your study sessions will appear here.
+            Your study sessions will appear here.
           </p>
         </div>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- FLASHCARDS PAGE -->
-    <!-- ===================================== -->
-
+    <!-- FLASHCARDS -->
     <section id="flashcards" class="page">
-
       <div class="page-heading">
-        <p class="date-label">🧠 REVIEW AND REMEMBER</p>
+        <p class="date-label">REVIEW AND REMEMBER</p>
         <h1>My Flashcards</h1>
         <p>Create question-and-answer cards to help you remember important lessons.</p>
       </div>
-
       <div class="content-card">
-
-        <h3>➕ Create a Flashcard</h3>
-
+        <h3>Create a Flashcard</h3>
         <form id="flashcardForm">
-
-          <label for="flashQuestion">❓ Question</label>
-
+          <label for="flashQuestion">Question</label>
           <textarea
             id="flashQuestion"
             placeholder="Enter your question"
             required
           ></textarea>
-
-          <label for="flashAnswer">💡 Answer</label>
-
+          <label for="flashAnswer">Answer</label>
           <textarea
             id="flashAnswer"
             placeholder="Enter the answer"
             required
           ></textarea>
-
           <button class="primary-btn" type="submit">
-            🗂️ Create Flashcard
+            Create Flashcard
           </button>
-
           <button class="secondary-btn" type="reset">
-            ↺ Clear Form
+            Clear Form
           </button>
-
         </form>
-
       </div>
-
       <div class="section-title">
-        <h2>📚 My Cards</h2>
-        <p>Click a card to reveal its answer.</p>
+        <h2>My Cards</h2>
+        <p>Select a card to reveal its answer.</p>
       </div>
-
       <div id="flashcardList" class="flashcard-grid"></div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- QUICK QUIZ PAGE -->
-    <!-- ===================================== -->
-
+    <!-- QUICK QUIZ -->
     <section id="quiz" class="page">
-
       <div class="page-heading">
-        <p class="date-label">🧠 TEST YOUR KNOWLEDGE</p>
+        <p class="date-label">TEST YOUR KNOWLEDGE</p>
         <h1>Quick Quiz</h1>
         <p>Challenge yourself and discover what you know.</p>
       </div>
-
       <div class="content-card quiz-card">
-
         <div id="quizContent">
-
-          <div class="quiz-icon" aria-hidden="true">🎯</div>
-
+          <div class="quiz-icon" aria-hidden="true">Q</div>
           <h2>Ready for a challenge?</h2>
-
           <p>
             Answer five educational questions and receive
             your score at the end.
           </p>
-
           <div class="quiz-category-container">
-
-            <label for="quizCategory">
-              📚 Choose Your Quiz Category:
-            </label>
-
+            <label for="quizCategory">Choose Your Quiz Category</label>
             <select id="quizCategory">
-              <option value="mixed">🌎 Mixed Quiz — All Subjects</option>
-              <option value="science">🔬 Science</option>
-              <option value="mathematics">➗ Mathematics</option>
-              <option value="english">📖 English</option>
-              <option value="mil">📱 Media and Information Literacy</option>
+              <option value="mixed">Mixed Quiz — All Subjects</option>
+              <option value="science">Science</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="english">English</option>
+              <option value="mil">Media and Information Literacy</option>
             </select>
-
           </div>
-
           <button id="startQuizBtn" class="primary-btn" type="button">
-            🚀 Start Quiz →
+            Start Quiz →
           </button>
-
         </div>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- STUDY TIMER PAGE -->
-    <!-- ===================================== -->
-
+    <!-- STUDY TIMER -->
     <section id="timer" class="page">
-
-      <!-- FOCUS MODE -->
       <div class="content-card focus-card">
-
         <div class="focus-heading">
-
-          <span class="focus-icon" aria-hidden="true">🔕</span>
-
+          <span class="focus-icon" aria-hidden="true">F</span>
           <div>
             <h3>Focus Mode</h3>
             <p>Reduce distractions during your study sessions.</p>
           </div>
-
         </div>
-
         <div id="focusStatus" class="focus-status">
           <span class="focus-dot"></span>
           Focus Mode is off
         </div>
-
         <p id="focusMessage">
           Start your study timer to activate Focus Mode.
         </p>
-
         <div class="focus-reminder">
-          💡 For fewer distractions, silence your phone notifications
+          For fewer distractions, silence your phone notifications
           or enable Do Not Disturb on your device.
         </div>
-
       </div>
-
       <div class="page-heading">
-        <p class="date-label">⏱️ FOCUS MODE</p>
+        <p class="date-label">FOCUS AND LEARN</p>
         <h1>Study Timer</h1>
         <p>Set aside time for focused learning and productive study sessions.</p>
       </div>
-
       <div class="content-card timer-card">
-
-        <div class="timer-icon" aria-hidden="true">🍅</div>
-
+        <div class="timer-icon" aria-hidden="true">25</div>
         <p id="timerMode">TIME TO FOCUS</p>
-
         <div
           id="timerDisplay"
           class="timer-display"
@@ -630,71 +446,51 @@
         >
           25:00
         </div>
-
         <div class="timer-settings">
-
           <button
             class="timer-option active"
             data-minutes="25"
             type="button"
           >
-            🍅 25 min
+            25 min
           </button>
-
           <button
             class="timer-option"
             data-minutes="45"
             type="button"
           >
-            📚 45 min
+            45 min
           </button>
-
           <button
             class="timer-option"
             data-minutes="60"
             type="button"
           >
-            🎯 60 min
+            60 min
           </button>
-
         </div>
-
         <div class="timer-controls">
-
           <button id="timerStart" class="primary-btn" type="button">
-            ▶️ Start
+            Start
           </button>
-
           <button id="timerReset" class="secondary-btn" type="button">
-            ↺ Reset
+            Reset
           </button>
-
         </div>
-
         <p id="timerMessage" class="timer-message" aria-live="polite">
           Choose a duration and begin your study session.
         </p>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- PROGRESS PAGE -->
-    <!-- ===================================== -->
-
+    <!-- PROGRESS -->
     <section id="progress" class="page">
-
       <div class="page-heading">
-        <p class="date-label">🏆 YOUR ACHIEVEMENTS</p>
+        <p class="date-label">YOUR ACHIEVEMENTS</p>
         <h1>My Progress</h1>
         <p>Every completed task is a step forward.</p>
       </div>
-
       <div class="content-card">
-
-        <h3>📈 Assignment Completion</h3>
-
+        <h3>Assignment Completion</h3>
         <div
           class="progress-track"
           role="progressbar"
@@ -704,70 +500,46 @@
         >
           <div id="progressBar" class="progress-bar"></div>
         </div>
-
         <p id="progressText">0% completed</p>
-
         <div class="progress-details">
-
           <div>
             <span id="progressCompleted">0</span>
-            <p>✅ Completed</p>
+            <p>Completed</p>
           </div>
-
           <div>
             <span id="progressPending">0</span>
-            <p>⏳ Pending</p>
+            <p>Pending</p>
           </div>
-
           <div>
             <span id="progressTotal">0</span>
-            <p>📋 Total Tasks</p>
+            <p>Total Tasks</p>
           </div>
-
         </div>
-
       </div>
-
       <div class="content-card">
-
-        <h3>💬 Your Study Reminder</h3>
-
+        <h3>Your Study Reminder</h3>
         <p>
           Progress doesn't have to be perfect. Stay consistent,
           take breaks, and celebrate the tasks you complete.
-          Every small step counts!
+          Every small step counts.
         </p>
-
         <button type="button" class="primary-btn" data-go="assignments">
-          📝 Continue My Tasks →
+          Continue My Tasks →
         </button>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- STUDY GOALS PAGE -->
-    <!-- ===================================== -->
-
+    <!-- STUDY GOALS -->
     <section id="studyGoals" class="page">
-
       <div class="page-heading">
-        <p class="date-label">🎯 BUILD YOUR CONSISTENCY</p>
+        <p class="date-label">BUILD YOUR CONSISTENCY</p>
         <h1>Study Goals</h1>
         <p>Set a daily target and track your study habits.</p>
       </div>
-
       <div class="content-card">
-
-        <h3>🎯 My Daily Goal</h3>
-
+        <h3>My Daily Goal</h3>
         <p>How many minutes do you want to study each day?</p>
-
         <form id="studyGoalForm">
-
-          <label for="dailyGoalInput">⏱️ Daily study target in minutes</label>
-
+          <label for="dailyGoalInput">Daily study target in minutes</label>
           <input
             type="number"
             id="dailyGoalInput"
@@ -776,21 +548,14 @@
             value="60"
             required
           >
-
           <button class="primary-btn" type="submit">
-            💾 Save Daily Goal
+            Save Daily Goal
           </button>
-
         </form>
-
       </div>
-
       <div class="content-card">
-
-        <h3>📊 Today's Progress</h3>
-
+        <h3>Today's Progress</h3>
         <p id="studyGoalToday">0 of 60 minutes studied</p>
-
         <div
           class="progress-track"
           role="progressbar"
@@ -800,132 +565,88 @@
         >
           <div id="studyGoalProgressBar" class="progress-bar"></div>
         </div>
-
         <p id="studyGoalMessage">
-          🌱 Start a study session to make progress!
+          Start a study session to make progress.
         </p>
-
         <button type="button" class="primary-btn" data-go="timer">
-          ⏱️ Start Studying →
+          Start Studying →
         </button>
-
       </div>
-
       <div class="content-card">
-
-        <h3>🔥 Study Streak</h3>
-
+        <h3>Study Streak</h3>
         <h2 id="studyGoalStreak">0 days</h2>
-
         <p>
           Your streak counts consecutive days when you reach
           your daily goal.
         </p>
-
       </div>
-
       <div class="content-card">
-
-        <h3>📅 Last 7 Days</h3>
-
+        <h3>Last 7 Days</h3>
         <div id="studyWeeklySummary"></div>
-
       </div>
-
     </section>
-
-    <!-- ===================================== -->
-    <!-- DIGITAL NOTES PAGE -->
-    <!-- ===================================== -->
-
+    <!-- DIGITAL NOTES -->
     <section id="notes" class="page">
-
       <div class="page-heading">
-        <p class="date-label">📒 KEEP YOUR IDEAS ORGANIZED</p>
+        <p class="date-label">KEEP YOUR IDEAS ORGANIZED</p>
         <h1>Digital Notes</h1>
         <p>Write, save, and organize your study notes in one place.</p>
       </div>
-
       <div class="content-card">
-
-        <h3 id="notesFormHeading">✍️ Create a Note</h3>
-
+        <h3 id="notesFormHeading">Create a Note</h3>
         <form id="notesForm">
-
-          <label for="noteTitle">📌 Note Title</label>
-
+          <label for="noteTitle">Note Title</label>
           <input
             type="text"
             id="noteTitle"
             placeholder="e.g. General Physics Reviewer"
             required
           >
-
-          <label for="noteContent">📝 Note Content</label>
-
+          <label for="noteContent">Note Content</label>
           <textarea
             id="noteContent"
             placeholder="Write your study notes here..."
             rows="6"
             required
           ></textarea>
-
           <button type="submit" class="primary-btn" id="saveNoteBtn">
-            💾 Save Note
+            Save Note
           </button>
-
           <button
             type="button"
             class="secondary-btn"
             id="cancelEditBtn"
             hidden
           >
-            ✖ Cancel Edit
+            Cancel Edit
           </button>
-
         </form>
-
       </div>
-
       <div class="content-card">
-
-        <h3>📚 Your Saved Notes</h3>
-
+        <h3>Your Saved Notes</h3>
         <div id="notesList">
           <p class="empty-message">
-            📭 No saved notes yet. Create your first note!
+            No saved notes yet. Create your first note.
           </p>
         </div>
-
       </div>
-
     </section>
-
     <!-- FOOTER -->
     <footer class="footer">
-
-      <strong>🌐 StudySphere.</strong>
-
-      <p>Your learning journey, one step at a time. ✨</p>
-
+      <strong>StudySphere.</strong>
+      <p>Your learning journey, one step at a time.</p>
       <small>GRADE 12 · STUDENT PRODUCTIVITY PROTOTYPE</small>
-
       <p>
         <button type="button" class="secondary-btn" data-go="dashboard">
-          🏠 Back to Dashboard
+          Back to Dashboard
         </button>
       </p>
-
     </footer>
-
   </main>
-
 </div>
-
 <!-- JAVASCRIPT -->
 <script src="./script.js"></script>
-
-<!-- SERVICE WORKER FOR PWA -->
+<!-- SERVICE WORKER -->
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
@@ -936,6 +657,5 @@
     });
   }
 </script>
-
 </body>
 </html>
