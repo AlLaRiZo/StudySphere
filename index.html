@@ -1,12 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b4d">
+  <meta name="description" content="StudySphere — your personal student productivity dashboard.">
+
+  <title>StudySphere | Student Productivity</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="manifest" href="./manifest.json">
+</head>
+
+<body>
+
 <div class="app">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
+
     <h2 class="logo">StudySphere<span>.</span></h2>
 
     <p class="menu-label">MENU</p>
 
-    <nav>
+    <nav aria-label="Main navigation">
+
       <button class="nav-btn active" data-page="dashboard">
         🏠 Dashboard
       </button>
@@ -35,19 +53,19 @@
         📊 My Progress
       </button>
 
-<button class="nav-btn" data-page="studyGoals">
-  🎯 Study Goals
-</button>
+      <button class="nav-btn" data-page="studyGoals">
+        🎯 Study Goals
+      </button>
 
-     
-<button class="nav-btn" data-page="notes">
-    📝 Digital Notes
-</button>
-   
+      <button class="nav-btn" data-page="notes">
+        📝 Digital Notes
+      </button>
+
     </nav>
 
-    <!-- LIGHT MODE / DARK MODE TOGGLE -->
+    <!-- LIGHT AND DARK MODE -->
     <div class="theme-switcher">
+
       <span id="themeIcon">☀️</span>
       <span id="themeLabel">Light Mode</span>
 
@@ -60,58 +78,55 @@
       >
         <span class="theme-toggle-knob"></span>
       </button>
+
     </div>
 
     <div class="sidebar-footer">
       <p>Small steps.</p>
       <p>Big achievements. ✨</p>
     </div>
+
   </aside>
 
- <section class="page" id="notes">
-    <h2>📝 Digital Notes</h2>
-    <p>Write and organize your study notes in one place.</p>
-
-    <form id="notesForm">
-        <input
-            type="text"
-            id="noteTitle"
-            placeholder="Note title"
-            required
-        >
-
-        <textarea
-            id="noteContent"
-            placeholder="Write your study notes here..."
-            rows="6"
-            required
-        ></textarea>
-
-        <button type="submit" id="saveNoteBtn">Save Note</button>
-        <button type="button" id="cancelEditBtn" hidden>Cancel Edit</button>
-    </form>
-
-    <h3>Your Saved Notes</h3>
-    <div id="notesList"></div>
-</section>
 
   <!-- MAIN CONTENT -->
- 
+  <main class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <div>
+        <p class="date-label">YOUR PERSONAL LEARNING SPACE</p>
+        <h2>Study Dashboard</h2>
+      </div>
+
+      <div class="topbar-actions">
+        <span class="user-avatar" aria-label="Student profile">🎓</span>
+      </div>
+
     </header>
 
-    <!-- GLOBAL SEARCH BAR -->
+
+    <!-- GLOBAL SEARCH -->
     <div class="global-search">
+
       <label for="globalSearchInput">Search StudySphere</label>
 
       <div class="global-search-box">
+
         <span>🔎</span>
+
         <input
           type="search"
           id="globalSearchInput"
           placeholder="Search assignments, notes, flashcards..."
           autocomplete="off"
         >
-        <button type="button" id="clearSearchBtn">Clear</button>
+
+        <button type="button" id="clearSearchBtn">
+          Clear
+        </button>
+
       </div>
 
       <div
@@ -119,13 +134,20 @@
         class="global-search-results"
         aria-live="polite"
       ></div>
+
     </div>
 
+
+    <!-- ===================================== -->
     <!-- DASHBOARD PAGE -->
+    <!-- ===================================== -->
+
     <section id="dashboard" class="page active-page">
 
       <div class="welcome-card">
+
         <div>
+
           <p class="welcome-label">WELCOME TO STUDYSPHERE</p>
 
           <h1>Learn smarter,<br>not harder.</h1>
@@ -138,9 +160,11 @@
           <button class="primary-btn" data-go="assignments">
             Manage My Tasks →
           </button>
+
         </div>
 
         <div class="welcome-illustration">📚</div>
+
       </div>
 
 
@@ -150,6 +174,7 @@
       </div>
 
 
+      <!-- ASSIGNMENT STATISTICS -->
       <div class="stats-grid">
 
         <div class="stat-card">
@@ -173,6 +198,7 @@
       </div>
 
 
+      <!-- QUICK ACCESS -->
       <div class="section-title">
         <h2>Quick Access</h2>
         <p>Choose what you want to work on.</p>
@@ -207,13 +233,16 @@
 
       </div>
 
-      <!-- Study Goals Preview -->
+
+      <!-- STUDY GOALS PREVIEW -->
       <div class="section-title">
         <h2>Study Goals</h2>
         <p>Make progress one study session at a time.</p>
       </div>
 
+
       <div class="stats-grid">
+
         <div class="stat-card">
           <div class="stat-icon purple">⏱️</div>
           <p>Today's Study Time</p>
@@ -231,6 +260,7 @@
           <p>Study Streak</p>
           <h2 id="dashboardStudyStreak">0 days</h2>
         </div>
+
       </div>
 
       <button class="primary-btn" data-go="studyGoals">
@@ -240,48 +270,63 @@
     </section>
 
 
+    <!-- ===================================== -->
     <!-- ASSIGNMENTS PAGE -->
+    <!-- ===================================== -->
+
     <section id="assignments" class="page">
-<!-- SMART DEADLINE REMINDER -->
-<div class="content-card deadline-reminder-card">
-  <div class="deadline-heading">
-    <div>
-      <p class="date-label">STAY ON TRACK</p>
-      <h2>Smart Deadline Reminder 🔔</h2>
-      <p>Keep an eye on your upcoming deadlines.</p>
-    </div>
-  </div>
 
-  <div class="deadline-summary">
-    <div class="deadline-stat">
-      <span id="overdueCount">0</span>
-      <p>Overdue</p>
-    </div>
+      <!-- SMART DEADLINE REMINDER -->
+      <div class="content-card deadline-reminder-card">
 
-    <div class="deadline-stat">
-      <span id="todayCount">0</span>
-      <p>Due Today</p>
-    </div>
+        <div class="deadline-heading">
 
-    <div class="deadline-stat">
-      <span id="upcomingCount">0</span>
-      <p>Upcoming</p>
-    </div>
-  </div>
+          <div>
+            <p class="date-label">STAY ON TRACK</p>
+            <h2>Smart Deadline Reminder 🔔</h2>
+            <p>Keep an eye on your upcoming deadlines.</p>
+          </div>
 
-  <div id="deadlineReminderList" class="deadline-reminder-list">
-    <p class="empty-deadlines">
-      Your assignment deadlines will appear here.
-    </p>
-  </div>
-</div>
-<!-- END SMART DEADLINE REMINDER -->
+        </div>
+
+
+        <div class="deadline-summary">
+
+          <div class="deadline-stat">
+            <span id="overdueCount">0</span>
+            <p>Overdue</p>
+          </div>
+
+          <div class="deadline-stat">
+            <span id="todayCount">0</span>
+            <p>Due Today</p>
+          </div>
+
+          <div class="deadline-stat">
+            <span id="upcomingCount">0</span>
+            <p>Upcoming</p>
+          </div>
+
+        </div>
+
+
+        <div id="deadlineReminderList" class="deadline-reminder-list">
+          <p class="empty-deadlines">
+            Your assignment deadlines will appear here.
+          </p>
+        </div>
+
+      </div>
+
+
       <div class="page-heading">
         <p class="date-label">STAY ORGANIZED</p>
         <h1>My Assignments 📝</h1>
         <p>Add tasks and keep track of your deadlines.</p>
       </div>
 
+
+      <!-- ADD ASSIGNMENT -->
       <div class="content-card">
 
         <h3>Add a New Assignment</h3>
@@ -289,6 +334,7 @@
         <form id="taskForm">
 
           <label for="taskName">Assignment Name</label>
+
           <input
             id="taskName"
             type="text"
@@ -297,6 +343,7 @@
           >
 
           <label for="taskSubject">Subject</label>
+
           <input
             id="taskSubject"
             type="text"
@@ -305,6 +352,7 @@
           >
 
           <label for="taskDeadline">Deadline</label>
+
           <input
             id="taskDeadline"
             type="date"
@@ -319,17 +367,27 @@
 
       </div>
 
+
+      <!-- TASK LIST -->
       <div class="content-card">
+
         <h3>My Task List</h3>
+
         <div id="taskList">
-          <p class="empty-message">No assignments yet. Add your first task!</p>
+          <p class="empty-message">
+            No assignments yet. Add your first task!
+          </p>
         </div>
+
       </div>
 
     </section>
 
 
+    <!-- ===================================== -->
     <!-- STUDY PLANNER PAGE -->
+    <!-- ===================================== -->
+
     <section id="planner" class="page">
 
       <div class="page-heading">
@@ -338,6 +396,7 @@
         <p>Create a schedule for your study sessions.</p>
       </div>
 
+
       <div class="content-card">
 
         <h3>Schedule a Study Session</h3>
@@ -345,6 +404,7 @@
         <form id="plannerForm">
 
           <label for="plannerSubject">Subject</label>
+
           <input
             id="plannerSubject"
             type="text"
@@ -353,12 +413,23 @@
           >
 
           <label for="plannerDate">Date</label>
-          <input id="plannerDate" type="date" required>
+
+          <input
+            id="plannerDate"
+            type="date"
+            required
+          >
 
           <label for="plannerTime">Start Time</label>
-          <input id="plannerTime" type="time" required>
+
+          <input
+            id="plannerTime"
+            type="time"
+            required
+          >
 
           <label for="plannerDuration">Duration</label>
+
           <select id="plannerDuration">
             <option value="25">25 minutes</option>
             <option value="45">45 minutes</option>
@@ -374,17 +445,26 @@
 
       </div>
 
+
       <div class="content-card">
+
         <h3>My Study Schedule</h3>
+
         <div id="scheduleList">
-          <p class="empty-message">Your study sessions will appear here.</p>
+          <p class="empty-message">
+            Your study sessions will appear here.
+          </p>
         </div>
+
       </div>
 
     </section>
 
 
+    <!-- ===================================== -->
     <!-- FLASHCARDS PAGE -->
+    <!-- ===================================== -->
+
     <section id="flashcards" class="page">
 
       <div class="page-heading">
@@ -393,6 +473,7 @@
         <p>Create your own question-and-answer cards.</p>
       </div>
 
+
       <div class="content-card">
 
         <h3>Create a Flashcard</h3>
@@ -400,6 +481,7 @@
         <form id="flashcardForm">
 
           <label for="flashQuestion">Question</label>
+
           <textarea
             id="flashQuestion"
             placeholder="Enter your question"
@@ -407,6 +489,7 @@
           ></textarea>
 
           <label for="flashAnswer">Answer</label>
+
           <textarea
             id="flashAnswer"
             placeholder="Enter the answer"
@@ -421,6 +504,7 @@
 
       </div>
 
+
       <div class="section-title">
         <h2>My Cards</h2>
         <p>Click a card to reveal its answer.</p>
@@ -431,7 +515,10 @@
     </section>
 
 
-    <!-- QUIZ PAGE -->
+    <!-- ===================================== -->
+    <!-- QUICK QUIZ PAGE -->
+    <!-- ===================================== -->
+
     <section id="quiz" class="page">
 
       <div class="page-heading">
@@ -440,33 +527,42 @@
         <p>Answer the questions and see how much you know.</p>
       </div>
 
+
       <div class="content-card quiz-card">
 
         <div id="quizContent">
+
           <div class="quiz-icon">💡</div>
+
           <h2>Ready for a challenge?</h2>
 
           <p>
             Answer five educational questions and receive
             your score at the end.
           </p>
-<!-- QUIZ CATEGORY SELECTOR -->
-<div class="quiz-category-container">
 
-    <label for="quizCategory">Choose Your Quiz Category:</label>
 
-    <select id="quizCategory">
-        <option value="mixed">🌎 Mixed Quiz — All Subjects</option>
-        <option value="science">🔬 Science</option>
-        <option value="mathematics">➗ Mathematics</option>
-        <option value="english">📖 English</option>
-        <option value="mil">📱 Media and Information Literacy</option>
-    </select>
+          <div class="quiz-category-container">
 
-</div>
-          <button id="startQuizBtn" class="primary-btn">
+            <label for="quizCategory">
+              Choose Your Quiz Category:
+            </label>
+
+            <select id="quizCategory">
+              <option value="mixed">🌎 Mixed Quiz — All Subjects</option>
+              <option value="science">🔬 Science</option>
+              <option value="mathematics">➗ Mathematics</option>
+              <option value="english">📖 English</option>
+              <option value="mil">📱 Media and Information Literacy</option>
+            </select>
+
+          </div>
+
+
+          <button id="startQuizBtn" class="primary-btn" type="button">
             Start Quiz →
           </button>
+
         </div>
 
       </div>
@@ -474,39 +570,50 @@
     </section>
 
 
-    <!-- TIMER PAGE -->
+    <!-- ===================================== -->
+    <!-- STUDY TIMER PAGE -->
+    <!-- ===================================== -->
+
     <section id="timer" class="page">
 
-<!-- AUTOMATIC FOCUS MODE -->
-<div class="content-card focus-card">
-  <div class="focus-heading">
-    <span class="focus-icon">🔕</span>
-    <div>
-      <h3>Notification Blocker</h3>
-      <p>Automatic Focus Mode for study sessions</p>
-    </div>
-  </div>
+      <!-- FOCUS MODE -->
+      <div class="content-card focus-card">
 
-  <div id="focusStatus" class="focus-status">
-    <span class="focus-dot"></span>
-    Focus Mode is off
-  </div>
+        <div class="focus-heading">
 
-  <p id="focusMessage">
-    Start your study timer to activate Focus Mode.
-  </p>
+          <span class="focus-icon">🔕</span>
 
-  <div class="focus-reminder">
-    💡 For fewer distractions, silence your phone notifications
-    or enable Do Not Disturb on your device.
-  </div>
-</div>
+          <div>
+            <h3>Notification Blocker</h3>
+            <p>Automatic Focus Mode for study sessions</p>
+          </div>
+
+        </div>
+
+
+        <div id="focusStatus" class="focus-status">
+          <span class="focus-dot"></span>
+          Focus Mode is off
+        </div>
+
+        <p id="focusMessage">
+          Start your study timer to activate Focus Mode.
+        </p>
+
+        <div class="focus-reminder">
+          💡 For fewer distractions, silence your phone notifications
+          or enable Do Not Disturb on your device.
+        </div>
+
+      </div>
+
 
       <div class="page-heading">
         <p class="date-label">FOCUS MODE</p>
         <h1>Study Timer ⏱️</h1>
         <p>Set aside time for focused learning.</p>
       </div>
+
 
       <div class="content-card timer-card">
 
@@ -518,29 +625,48 @@
           25:00
         </div>
 
+
         <div class="timer-settings">
-          <button class="timer-option active" data-minutes="25">
+
+          <button
+            class="timer-option active"
+            data-minutes="25"
+            type="button"
+          >
             25 min
           </button>
 
-          <button class="timer-option" data-minutes="45">
+          <button
+            class="timer-option"
+            data-minutes="45"
+            type="button"
+          >
             45 min
           </button>
-<button class="timer-option" data-minutes="1">1 min</button>
-          <button class="timer-option" data-minutes="60">
+
+          <button
+            class="timer-option"
+            data-minutes="60"
+            type="button"
+          >
             60 min
           </button>
+
         </div>
 
+
         <div class="timer-controls">
-          <button id="timerStart" class="primary-btn">
+
+          <button id="timerStart" class="primary-btn" type="button">
             Start
           </button>
 
-          <button id="timerReset" class="secondary-btn">
+          <button id="timerReset" class="secondary-btn" type="button">
             Reset
           </button>
+
         </div>
+
 
         <p id="timerMessage" class="timer-message">
           Choose a duration and begin your study session.
@@ -551,7 +677,10 @@
     </section>
 
 
+    <!-- ===================================== -->
     <!-- PROGRESS PAGE -->
+    <!-- ===================================== -->
+
     <section id="progress" class="page">
 
       <div class="page-heading">
@@ -559,6 +688,7 @@
         <h1>My Progress 📊</h1>
         <p>Every completed task is a step forward.</p>
       </div>
+
 
       <div class="content-card">
 
@@ -570,7 +700,9 @@
 
         <p id="progressText">0% completed</p>
 
+
         <div class="progress-details">
+
           <div>
             <span id="progressCompleted">0</span>
             <p>Completed</p>
@@ -585,21 +717,30 @@
             <span id="progressTotal">0</span>
             <p>Total Tasks</p>
           </div>
+
         </div>
 
       </div>
 
+
       <div class="content-card">
+
         <h3>Your Study Reminder</h3>
+
         <p>
           Progress doesn't have to be perfect. Stay consistent,
           take breaks, and celebrate the tasks you complete.
         </p>
+
       </div>
 
     </section>
-    
+
+
+    <!-- ===================================== -->
     <!-- STUDY GOALS PAGE -->
+    <!-- ===================================== -->
+
     <section id="studyGoals" class="page">
 
       <div class="page-heading">
@@ -608,11 +749,17 @@
         <p>Set a daily target and track your study habits.</p>
       </div>
 
+
       <div class="content-card">
+
         <h3>My Daily Goal</h3>
+
         <p>How many minutes do you want to study each day?</p>
 
         <form id="studyGoalForm">
+
+          <label for="dailyGoalInput">Daily study target in minutes</label>
+
           <input
             type="number"
             id="dailyGoalInput"
@@ -621,42 +768,158 @@
             value="60"
             required
           >
-          <button type="submit">Save Daily Goal</button>
+
+          <button class="primary-btn" type="submit">
+            Save Daily Goal
+          </button>
+
         </form>
+
       </div>
 
+
       <div class="content-card">
+
         <h3>Today's Progress</h3>
+
         <p id="studyGoalToday">0 of 60 minutes studied</p>
 
         <div class="progress-track">
           <div id="studyGoalProgressBar" class="progress-bar"></div>
         </div>
 
-        <p id="studyGoalMessage">Start a study session to make progress!</p>
+        <p id="studyGoalMessage">
+          Start a study session to make progress!
+        </p>
+
       </div>
 
+
       <div class="content-card">
+
         <h3>Study Streak 🔥</h3>
+
         <h2 id="studyGoalStreak">0 days</h2>
-        <p>Your streak counts consecutive days when you reach your daily goal.</p>
+
+        <p>
+          Your streak counts consecutive days when you reach
+          your daily goal.
+        </p>
+
       </div>
 
+
       <div class="content-card">
+
         <h3>Last 7 Days</h3>
+
         <div id="studyWeeklySummary"></div>
+
       </div>
 
     </section>
 
 
+    <!-- ===================================== -->
+    <!-- DIGITAL NOTES PAGE -->
+    <!-- ===================================== -->
 
+    <section id="notes" class="page">
+
+      <div class="page-heading">
+        <p class="date-label">KEEP YOUR IDEAS ORGANIZED</p>
+        <h1>Digital Notes 📝</h1>
+        <p>Write and organize your study notes in one place.</p>
+      </div>
+
+
+      <div class="content-card">
+
+        <h3 id="notesFormHeading">Create a Note</h3>
+
+        <form id="notesForm">
+
+          <label for="noteTitle">Note Title</label>
+
+          <input
+            type="text"
+            id="noteTitle"
+            placeholder="e.g. General Physics Reviewer"
+            required
+          >
+
+          <label for="noteContent">Note Content</label>
+
+          <textarea
+            id="noteContent"
+            placeholder="Write your study notes here..."
+            rows="6"
+            required
+          ></textarea>
+
+          <button type="submit" class="primary-btn" id="saveNoteBtn">
+            Save Note
+          </button>
+
+          <button
+            type="button"
+            class="secondary-btn"
+            id="cancelEditBtn"
+            hidden
+          >
+            Cancel Edit
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <h3>Your Saved Notes</h3>
+
+        <div id="notesList">
+          <p class="empty-message">
+            No saved notes yet. Create your first note!
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
     <footer class="footer">
+
       <strong>StudySphere.</strong>
+
       <p>Your learning journey, one step at a time. ✨</p>
+
       <small>GRADE 12 · STUDENT PRODUCTIVITY PROTOTYPE</small>
+
     </footer>
 
   </main>
 
 </div>
+
+
+<!-- JAVASCRIPT -->
+<script src="./script.js"></script>
+
+<!-- SERVICE WORKER FOR PWA -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(function (error) {
+          console.error("Service worker registration failed:", error);
+        });
+    });
+  }
+</script>
+
+</body>
+</html>
