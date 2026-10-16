@@ -16,6 +16,9 @@
 
 <div class="app">
 
+  <!-- MOBILE SIDEBAR OVERLAY -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
 
@@ -26,39 +29,39 @@
     <nav aria-label="Main navigation">
 
       <button class="nav-btn active" data-page="dashboard">
-         Dashboard
+        Dashboard
       </button>
 
       <button class="nav-btn" data-page="assignments">
-         Assignments
+        Assignments
       </button>
 
       <button class="nav-btn" data-page="planner">
-         Study Planner
+        Study Planner
       </button>
 
       <button class="nav-btn" data-page="flashcards">
-         Flashcards
+        Flashcards
       </button>
 
       <button class="nav-btn" data-page="quiz">
-         Quick Quiz
+        Quick Quiz
       </button>
 
       <button class="nav-btn" data-page="timer">
-         Study Timer
+        Study Timer
       </button>
 
       <button class="nav-btn" data-page="progress">
-         My Progress
+        My Progress
       </button>
 
       <button class="nav-btn" data-page="studyGoals">
-         Study Goals
+        Study Goals
       </button>
 
       <button class="nav-btn" data-page="notes">
-         Digital Notes
+        Digital Notes
       </button>
 
     </nav>
@@ -83,7 +86,7 @@
 
     <div class="sidebar-footer">
       <p>Small steps.</p>
-      <p>Big achievements. </p>
+      <p>Big achievements.</p>
     </div>
 
   </aside>
@@ -91,6 +94,19 @@
 
   <!-- MAIN CONTENT -->
   <main class="main-content">
+
+    <!-- MOBILE MENU BUTTON -->
+    <button
+      type="button"
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      aria-label="Open navigation menu"
+      aria-controls="sidebar"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
 
     <!-- TOP BAR -->
     <header class="topbar">
@@ -431,12 +447,13 @@
           <label for="plannerDuration">Duration</label>
 
           <select id="plannerDuration">
-                       
+
             <option value="1">1 minute</option>
             <option value="25">25 minutes</option>
             <option value="45">45 minutes</option>
             <option value="60">1 hour</option>
             <option value="90">1 hour 30 minutes</option>
+
           </select>
 
           <button class="primary-btn" type="submit">
@@ -629,8 +646,9 @@
 
 
         <div class="timer-settings">
+
           <button
-            class="timer-option active"
+            class="timer-option"
             data-minutes="1"
             type="button"
           >
@@ -917,6 +935,7 @@
 
 <!-- JAVASCRIPT -->
 <script src="./script.js"></script>
+
 
 <!-- SERVICE WORKER FOR PWA -->
 <script>
